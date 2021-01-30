@@ -1,0 +1,1 @@
+# manjipuzha-store
