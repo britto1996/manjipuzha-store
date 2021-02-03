@@ -1,5 +1,6 @@
 import React from "react";
 import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
+import SearchBox from "./SearchBox";
 
 const Header = () => {
   return (
@@ -10,27 +11,30 @@ const Header = () => {
 
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
+            <SearchBox />
             <Nav className="ml-auto">
               <Nav.Link href="/cart">
                 <i className="fas fa-shopping-cart"></i> Cart
               </Nav.Link>
 
               <NavDropdown>
-                <NavDropdown.Item>Profile</NavDropdown.Item>
+                <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
 
                 <NavDropdown.Item>Logout</NavDropdown.Item>
               </NavDropdown>
 
-              <Nav.Link>
+              <Nav.Link href="/signin">
                 <i className="fas fa-user"></i> Sign In
               </Nav.Link>
 
               <NavDropdown title="Admin" id="adminmenu">
-                <NavDropdown.Item>Users</NavDropdown.Item>
+                <NavDropdown.Item href="/admin/users">Users</NavDropdown.Item>
 
-                <NavDropdown.Item>Products</NavDropdown.Item>
+                <NavDropdown.Item href="/admin/products">
+                  Products
+                </NavDropdown.Item>
 
-                <NavDropdown.Item>Orders</NavDropdown.Item>
+                <NavDropdown.Item href="/admin/orders">Orders</NavDropdown.Item>
               </NavDropdown>
             </Nav>
           </Navbar.Collapse>
