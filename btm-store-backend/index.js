@@ -1,23 +1,21 @@
+const path = require("path");
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 var colors = require("colors");
-const mongoose = require("mongoose");
+const connectDB = require("./config/db");
+require("dotenv").config();
+const user = require("./routes/user");
+const morgan = require("morgan");
 const port = process.env.PORT || 8000;
+
+app.use(morgan("dev"));
 
 app.use(bodyParser.json());
 
-mongoose
-  .connect("mongodb://localhost/btm-online-store", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-  })
-  .then(() => console.log("DB CONNECTED"));
+connectDB();
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
+app.use("/api/users", user);
 
 app.listen(port, () => {
   console.log(`server is running on port ${port}`);
