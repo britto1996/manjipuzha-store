@@ -7,7 +7,13 @@ const connectDB = require("./config/db");
 require("dotenv").config();
 const user = require("./routes/user");
 const morgan = require("morgan");
+const cors = require("cors");
+const cookieParser = require("cookie-parser");
 const port = process.env.PORT || 8000;
+
+app.use(cookieParser());
+
+app.use(cors());
 
 app.use(morgan("dev"));
 
