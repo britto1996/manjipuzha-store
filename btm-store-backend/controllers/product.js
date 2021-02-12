@@ -86,29 +86,42 @@ exports.updateProduct = asyncHandler(async (req, res) => {
 });
 
 exports.createProductReview = asyncHandler(async (req, res) => {
-  const { rating, comment } = req.body;
+  // let rating;
+  // let comment;
+  // const takeProduct = new Product({
+  //   rating: req.body.rating,
+  //   comment: req.body.comment,
+  // });
+  const { rating, comment, name } = req.body;
+  // console.log(takeProduct);
+
   const product = await Product.findById(req.params.id);
   if (product) {
     const alreadyReviewed = product.reviews.find(
-      (r) => r.user.toString() === req.user._id.toString
+      (r) => r.user.toString() === req.user._id.toString()
     );
     if (alreadyReviewed) {
+      // console.log(alreadyReviewed);
       res.status(404);
       throw new Error(`product already reviewed`);
     }
     const review = {
-      name: req.user.name,
+      name,
       rating: Number(rating),
       comment,
       user: req.user._id,
     };
+    console.log(review);
     product.reviews.push(review);
+    // console.log(product.reviews[0]);
 
     product.numReviews = product.reviews.length;
+    // console.log(product.numReviews);
 
     product.rating =
       product.reviews.reduce((acc, item) => item.rating + acc, 0) /
       product.reviews.length;
+    // console.log(product);
 
     await product.save();
     res.status(201).json({ message: `review added` });
@@ -119,6 +132,6 @@ exports.createProductReview = asyncHandler(async (req, res) => {
 });
 
 exports.getTopProducts = asyncHandler(async (req, res) => {
-  const products = await Product.findById({}).sort({ rating: -1 }).limit(3);
+  const products = await Product.find({}).sort({ rating: -1 }).limit(3);
   res.json(products);
 });
