@@ -7,6 +7,7 @@ const connectDB = require("./config/db");
 require("dotenv").config();
 const user = require("./routes/user");
 const product = require("./routes/product");
+const order = require("./routes/order");
 const morgan = require("morgan");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
@@ -25,6 +26,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 connectDB();
 
 app.use("/api/products", product);
+app.use("/api/orders", order);
 app.use("/api/users", user);
 
 app.listen(port, () => {
