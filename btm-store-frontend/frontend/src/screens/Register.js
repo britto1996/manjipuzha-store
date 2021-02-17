@@ -36,9 +36,10 @@ const Register = ({ location, history }) => {
     <FormContainer>
       <h1>Sign Up</h1>
       {message && <Message variant="danger">{message}</Message>}
-      {console.log(message)}
+
       {error && <Message variant="danger">{error}</Message>}
       {console.log(error)}
+
       {loading && <Loader />}
       <Form onSubmit={submitHandler}>
         <Form.Group controlId="name">
@@ -88,7 +89,7 @@ const Register = ({ location, history }) => {
       <Row className="py-3">
         <Col>
           Have an Account?{" "}
-          <Link to={redirect ? `/signin?redirect=${redirect}` : "/login"}>
+          <Link to={redirect ? `/signin?redirect=${redirect}` : "/signin"}>
             Login
           </Link>
         </Col>
