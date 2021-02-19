@@ -10,6 +10,7 @@ import Register from "./screens/Register";
 import ProductList from "./screens/ProductList";
 import UserList from "./screens/UserList";
 import OrderList from "./screens/OrderList";
+import Product from "./components/Product";
 
 const App = () => {
   return (
@@ -18,10 +19,11 @@ const App = () => {
         <Header />
         <main className="py-3">
           <Container>
-            <Route path="/cart" component={Cart} />
+            <Route path="/cart/:id" component={Cart} />
             <Route path="/signin" component={Signin} />
             <Route path="/register" component={Register} />
             <Route path="/profile" component={Profile} />
+            <Route path="/products/:id" component={Product} />
             <Route path="/admin/users" component={UserList} />
             <Route path="/admin/products" component={ProductList} />
             <Route path="/admin/orders" component={OrderList} />

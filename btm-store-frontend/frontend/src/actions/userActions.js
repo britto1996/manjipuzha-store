@@ -1,8 +1,11 @@
 import axios from "axios";
 import {
+  USER_DETAILS_RESET,
+  USER_LIST_RESET,
   USER_LOGIN_FAIL,
   USER_LOGIN_REQUEST,
   USER_LOGIN_SUCCESS,
+  USER_LOGOUT,
   USER_REGISTER_FAIL,
   USER_REGISTER_REQUEST,
   USER_REGISTER_SUCCESS,
@@ -37,6 +40,14 @@ export const login = (email, password) => async (dispatch) => {
           : error.message,
     });
   }
+};
+
+export const logout = () => (dispatch) => {
+  localStorage.removeItem("userInfo");
+  dispatch({ type: USER_LOGOUT });
+  dispatch({ type: USER_DETAILS_RESET });
+  dispatch({ type: USER_LIST_RESET });
+  document.location.href = "/signin";
 };
 
 export const register = (name, email, password) => async (dispatch) => {
