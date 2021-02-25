@@ -13,9 +13,12 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 
 const reducer = combineReducers({
+  productCreate: productCreateReducer,
   productList: productListReducer,
+  prodctUpdate: productUpdateReducer,
   productDetails: productDetailsReducer,
-  productReview: productReviewCreateReducer,
+  productDelete: productDeleteReducer,
+  productReviewCreate: productReviewCreateReducer,
   productTopRated: productTopRatedReducer,
   userRegister: userRegisterReducer,
   userLogin: userLoginReducer,

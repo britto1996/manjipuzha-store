@@ -29,8 +29,9 @@ const Product = ({ history, match }) => {
   const productDetails = useSelector((state) => state.productDetails);
   const { loading, error, product } = productDetails;
 
-  const userLogin = useSelector((state) => state.productReviewCreate);
+  const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
+  const productReviewCreate = useSelector((state) => state.productReviewCreate);
   const {
     success: successProductReview,
     loading: loadingProductReview,
@@ -93,15 +94,7 @@ const Product = ({ history, match }) => {
             </Col>
             <Col md={3}>
               <ListGroup variant="flush">
-                <ListGroup.Item>
-                  <h3>{product.name}</h3>
-                </ListGroup.Item>
-                <ListGroup.Item>
-                  <Rating
-                    value={product.rating}
-                    text={`${product.numReviews} reviews`}
-                  />
-                </ListGroup.Item>
+                <ListGroup.Item></ListGroup.Item>
               </ListGroup>
             </Col>
             <Col md={3}>
@@ -222,7 +215,7 @@ const Product = ({ history, match }) => {
                     </Form>
                   ) : (
                     <Message>
-                      Please <Link to="/login">sign in</Link> to write a review{" "}
+                      Please <Link to="/signin">sign in</Link> to write a review{" "}
                     </Message>
                   )}
                 </ListGroup.Item>
