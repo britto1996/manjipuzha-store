@@ -28,13 +28,17 @@ const Header = () => {
               </Nav.Link>
 
               <NavDropdown title="Admin" id="adminmenu">
-                <NavDropdown.Item href="/admin/users">Users</NavDropdown.Item>
+                <NavDropdown.Item href="/admin/userlist">
+                  Users
+                </NavDropdown.Item>
 
-                <NavDropdown.Item href="/admin/products">
+                <NavDropdown.Item href="/admin/productlist">
                   Products
                 </NavDropdown.Item>
 
-                <NavDropdown.Item href="/admin/orders">Orders</NavDropdown.Item>
+                <NavDropdown.Item href="/admin/orderlist">
+                  Orders
+                </NavDropdown.Item>
               </NavDropdown>
             </Nav>
           </Navbar.Collapse>
