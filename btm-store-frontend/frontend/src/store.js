@@ -1,5 +1,11 @@
 import { applyMiddleware, combineReducers, createStore } from "redux";
-import { userRegisterReducer, userLoginReducer } from "./reducer/userReducers";
+
+import {
+  userRegisterReducer,
+  userLoginReducer,
+  userListReducer,
+  userDeleteReducer,
+} from "./reducer/userReducers";
 import {
   productListReducer,
   productDetailsReducer,
@@ -22,6 +28,8 @@ const reducer = combineReducers({
   productTopRated: productTopRatedReducer,
   userRegister: userRegisterReducer,
   userLogin: userLoginReducer,
+  userList: userListReducer,
+  userDelete: userDeleteReducer,
 });
 
 const initialState = {};

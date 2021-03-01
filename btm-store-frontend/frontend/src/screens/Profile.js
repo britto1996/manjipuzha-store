@@ -1,8 +1,12 @@
-import React from "react";
-import { Button, Col, Form, Row, Table } from "react-bootstrap";
-import Loader from "../components/Loader";
+import React, { useState, useEffect } from "react";
+import { Table, Form, Button, Row, Col } from "react-bootstrap";
+import { LinkContainer } from "react-router-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
 import Message from "../components/Message";
+import Loader from "../components/Loader";
+import { getUserDetails, updateUserProfile } from "../actions/userActions";
 
+import { USER_UPDATE_PROFILE_RESET } from "../constant/userConstants";
 const Profile = () => {
   const message = "profile failed to update";
   const error = "try again";

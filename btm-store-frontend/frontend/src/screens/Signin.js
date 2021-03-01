@@ -12,7 +12,7 @@ const Signin = ({ location, history }) => {
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
   const userLogin = useSelector((state) => state.userLogin);
-  console.log(userLogin);
+
   const { loading, error, userInfo } = userLogin;
   const redirect = location.search ? location.search.split("=")[1] : "/";
   useEffect(() => {
@@ -28,7 +28,7 @@ const Signin = ({ location, history }) => {
     <FormContainer>
       <h1>Sign In</h1>
       {error && <Message variant="danger">{error}</Message>}
-      {console.log(error)}
+
       {loading && <Loader />}
       <Form onSubmit={submitHandler}>
         <Form.Group controlId="email">
