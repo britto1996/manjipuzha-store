@@ -5,6 +5,8 @@ import {
   userLoginReducer,
   userListReducer,
   userDeleteReducer,
+  userDetailsReducer,
+  userUpdateProfileReducer,
 } from "./reducer/userReducers";
 import {
   productListReducer,
@@ -15,6 +17,7 @@ import {
   productReviewCreateReducer,
   productTopRatedReducer,
 } from "./reducer/productReducers";
+import { cartReducer } from "./reducer/cartReducers";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 
@@ -30,6 +33,9 @@ const reducer = combineReducers({
   userLogin: userLoginReducer,
   userList: userListReducer,
   userDelete: userDeleteReducer,
+  userDetails: userDetailsReducer,
+  userUpdateProfile: userUpdateProfileReducer,
+  cart: cartReducer,
 });
 
 const initialState = {};
