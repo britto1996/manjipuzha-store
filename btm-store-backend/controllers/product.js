@@ -49,8 +49,8 @@ exports.createProduct = asyncHandler(async (req, res) => {
     image: "/images/sample.jpg",
     brand: "sample brand",
     category: "sample category",
-    countInStock: 5,
-    numReviews: 2,
+    countInStock: 0,
+    numReviews: 0,
     description: "sample description",
   });
   const createdProduct = await product.save();

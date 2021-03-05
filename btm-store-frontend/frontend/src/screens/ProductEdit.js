@@ -51,6 +51,7 @@ const ProductEdit = ({ match, history }) => {
       }
     }
   }, [dispatch, history, productId, product, successUpdate]);
+
   const uploadFileHandler = async (e) => {
     const file = e.target.files[0];
     const formData = new FormData();
@@ -63,6 +64,7 @@ const ProductEdit = ({ match, history }) => {
           "Content-Type": "multipart/form-data",
         },
       };
+
       const { data } = await axios.post("/api/upload", formData, config);
 
       setImage(data);
@@ -72,6 +74,7 @@ const ProductEdit = ({ match, history }) => {
       setUploading(false);
     }
   };
+
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(
@@ -87,6 +90,7 @@ const ProductEdit = ({ match, history }) => {
       })
     );
   };
+
   return (
     <>
       <Link to="/admin/productlist" className="btn btn-light my-3">
