@@ -1,43 +1,43 @@
 const path = require("path");
 const express = require("express");
-const app = express();
-const bodyParser = require("body-parser");
-var colors = require("colors");
-const connectDB = require("./config/db");
-require("dotenv").config();
-const user = require("./routes/user");
-const { notFound, errorHandler } = require("./middleware/errorMiddleware");
-const product = require("./routes/product");
-const order = require("./routes/order");
-const upload = require("./routes/upload");
+const dotenv = require("dotenv");
+const colors = require("colors");
 const morgan = require("morgan");
-const cors = require("cors");
-const cookieParser = require("cookie-parser");
+const { notFound, errorHandler } = require("./middleware/errorMiddleware");
+const connectDB = require("./config/db.js");
 
-const port = process.env.PORT || 8000;
+const productRoutes = require("./routes/product.js");
+const userRoutes = require("./routes/user.js");
+const orderRoutes = require("./routes/order.js");
+const uploadRoutes = require("./routes/upload.js");
 
-app.use(cookieParser());
+dotenv.config();
 
-app.use(cors());
+connectDB();
+
+const app = express();
 
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
 
-app.use(bodyParser.json());
+app.use(express.json());
 
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use("/api/products", productRoutes);
+app.use("/api/users", userRoutes);
+app.use("/api/orders", orderRoutes);
+app.use("/api/upload", uploadRoutes);
 
-connectDB();
-
-app.use("/api/products", product);
-app.use("/api/orders", order);
-app.use("/api/users", user);
-app.use("/api/upload", upload);
+app.get("/api/config/paypal", (req, res) =>
+  res.send(process.env.PAYPAL_CLIENT_ID)
+);
 
 var __dirname = path.resolve();
+app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
+
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "/frontend/build")));
+
   app.get("*", (req, res) =>
     res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"))
   );
@@ -46,9 +46,15 @@ if (process.env.NODE_ENV === "production") {
     res.send("API is running....");
   });
 }
+
 app.use(notFound);
 app.use(errorHandler);
 
-app.listen(port, () => {
-  console.log(`server is running on port ${port}`);
-});
+const PORT = process.env.PORT || 8000;
+
+app.listen(
+  PORT,
+  console.log(
+    `Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold
+  )
+);

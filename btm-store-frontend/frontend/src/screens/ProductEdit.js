@@ -54,6 +54,7 @@ const ProductEdit = ({ match, history }) => {
 
   const uploadFileHandler = async (e) => {
     const file = e.target.files[0];
+    console.log(file);
     const formData = new FormData();
     formData.append("image", file);
     setUploading(true);
@@ -68,6 +69,7 @@ const ProductEdit = ({ match, history }) => {
       const { data } = await axios.post("/api/upload", formData, config);
 
       setImage(data);
+
       setUploading(false);
     } catch (error) {
       console.error(error);
@@ -137,7 +139,6 @@ const ProductEdit = ({ match, history }) => {
               <Form.File
                 id="image-file"
                 label="Choose File"
-                custom
                 onChange={uploadFileHandler}
               ></Form.File>
               {uploading && <Loader />}
