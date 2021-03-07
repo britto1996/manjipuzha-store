@@ -37,7 +37,7 @@ const ProductList = ({ history, match }) => {
   useEffect(() => {
     dispatch({ type: PRODUCT_CREATE_RESET });
     if (!userInfo || !userInfo.isAdmin) {
-      // history.push(`/signin`);
+      history.push(`/signin`);
     }
     if (successCreate) {
       history.push(`/admin/product/${createdProduct._id}/edit`);
