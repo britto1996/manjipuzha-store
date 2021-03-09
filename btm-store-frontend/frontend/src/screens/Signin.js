@@ -21,6 +21,7 @@ const Signin = ({ location, history }) => {
   useEffect(() => {
     if (userInfo) {
       history.push(redirect);
+      console.log(userInfo);
     }
   }, [history, userInfo, redirect]);
 
