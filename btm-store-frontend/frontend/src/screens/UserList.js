@@ -6,7 +6,7 @@ import Message from "../components/Message";
 import Loader from "../components/Loader";
 import { listUsers, deleteUser } from "../actions/userActions";
 
-const UserListScreen = ({ history }) => {
+const UserList = ({ history }) => {
   const dispatch = useDispatch();
   const userList = useSelector((state) => state.userList);
   console.log(userList);
@@ -24,7 +24,7 @@ const UserListScreen = ({ history }) => {
     if (userInfo && userInfo.isAdmin) {
       dispatch(listUsers());
     } else {
-      // history.push("/signin");
+      history.push("/signin");
     }
   }, [dispatch, history, successDelete, userInfo]);
 
@@ -91,4 +91,4 @@ const UserListScreen = ({ history }) => {
   );
 };
 
-export default UserListScreen;
+export default UserList;
