@@ -1,0 +1,24 @@
+{
+  "name": "online-store",
+  "version": "1.0.0",
+  "description": "store",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/britto1996/manjipuzha-store.git"
+  },
+  "author": "btm",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/britto1996/manjipuzha-store/issues"
+  },
+  "homepage": "https://github.com/britto1996/manjipuzha-store#readme",
+  "dependencies": {
+    "concurrently": "^6.0.0",
+    "nodemon": "^2.0.7"
+  },
+  "heroku-run-build-script": true
+}

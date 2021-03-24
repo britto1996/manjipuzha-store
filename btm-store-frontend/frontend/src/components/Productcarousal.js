@@ -29,7 +29,7 @@ const ProductCarousel = () => {
               className="d-block mx-auto img-fluid w-50"
               src={product.image}
               alt={product.name}
-              roundedCircle
+              rectangle
             />
           </Link>
         </Carousel.Item>
