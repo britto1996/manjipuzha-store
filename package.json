@@ -5,13 +5,7 @@
   "main": "index.js",
   
   "scripts": {
-    "start": "node btm-store-backend/index",
-    "server": "nodemon btm-store-backend/index",
-    "client": "npm start --prefix btm-store-frontend/frontend",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "data:import": "node backend/seeder",
-    "data:destroy": "node backend/seeder -d",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix btm-store-frontend/frontend && btm-store-frontend/npm run build --prefix frontend"
+    "start": "node btm-store-backend/index"
   },
   "repository": {
     "type": "git",
