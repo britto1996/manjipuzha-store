@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const connectDB = async () => {
   try {
     const conn = await mongoose.connect(
-      "mongodb://localhost/btm-online-store",
+      `mongodb+srv://${process.env.USER}:${process.env.PASSWORD}@cluster0.wgjmp.mongodb.net/${process.env.DATABASE}?retryWrites=true&w=majority`,
       {
         useNewUrlParser: true,
         useUnifiedTopology: true,
