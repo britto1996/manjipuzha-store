@@ -1,1 +1,1 @@
-web: node btm-store-backend/index.js
+web: npm start
