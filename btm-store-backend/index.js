@@ -44,7 +44,7 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(
       path.resolve(
         __dirname,
-        "btm-store-frontend/frontend",
+        "../btm-store-frontend/frontend",
         "build",
         "index.html"
       )
