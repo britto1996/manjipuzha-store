@@ -1,1 +1,1 @@
-web: node btm-store-backend/index
+web: node index.js
