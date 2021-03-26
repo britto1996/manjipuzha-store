@@ -59,7 +59,7 @@ if (process.env.NODE_ENV === "production") {
 app.use(notFound);
 app.use(errorHandler);
 
-const PORT = process.env.PORT || 8000;
+var PORT = process.env.PORT || 8000;
 
 app.listen(
   PORT,
