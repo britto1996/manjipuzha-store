@@ -1,6 +1,6 @@
 {
   "name": "online-store",
-  "proxy": "https://manjipuzha-store.herokuapp.co",
+  "proxy": "https://manjipuzha-store.herokuapp.com",
   "version": "1.0.0",
   "description": "store",
   "main": "index.js",
