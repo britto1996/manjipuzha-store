@@ -61,8 +61,6 @@ app.use(errorHandler);
 
 const PORT = process.env.PORT || 8000;
 
-app.set("port", PORT);
-
 app.listen(
   PORT,
   console.log(

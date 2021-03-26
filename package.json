@@ -9,13 +9,12 @@
     "npm": "6.14.10"
   },
   "scripts": {
-    "start": "node btm-store-backend/index.js",
-    "server": "nodemon btm-store-backend/index.js",
-    "client": "npm run --prefix btm-store-frontend/frontend",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "data:import": "node btm-store-backend/seeder",
-    "data:destroy": "node btm-store-backend/seeder -d",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix btm-store-frontend/frontend && npm run build --prefix btm-store-frontend/frontend"
+    "dev": "react-scripts start",
+    "start": "serve -s build",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "heroku-postbuild": "npm run build"
   },
   "repository": {
     "type": "git",
